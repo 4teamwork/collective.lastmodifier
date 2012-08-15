@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<atcttool>
+  <topic_indexes>
+    <index name="last_modifier"
+          description="The user, who made the last modification"
+          friendlyName="Last Modifier"
+          enabled="True">
+      <criteria>ATCurrentAuthorCriterion</criteria>
+      <criteria>ATListCriterion</criteria>
+      <criteria>ATSimpleStringCriterion</criteria>
+    </index>
+  </topic_indexes>
+  <topic_metadata>
+    <metadata name="last_modifier"
+              description="The user, who made the last modification"
+              friendlyName="Last Modifier"
+              enabled="True"/>
+  </topic_metadata>
+</atcttool>
