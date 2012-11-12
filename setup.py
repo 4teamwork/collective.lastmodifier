@@ -10,7 +10,7 @@ tests_require = [
 setup(name='collective.lastmodifier',
       version=version,
       description="Extends Plone content with metadata about the last modifier",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
         "Framework :: Plone",
