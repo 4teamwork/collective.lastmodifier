@@ -18,6 +18,12 @@ Go to Site Setup of your Plone site and activate the ``collective.lastmodifier``
 add-on.
 
 
+Compatibility
+-------------
+
+Runs with `Plone <http://www.plone.org/>`_ `4.1`, `4.2` and `4.3`.
+
+
 Links
 =====
 
