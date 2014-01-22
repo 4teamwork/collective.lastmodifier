@@ -14,5 +14,7 @@ def notifyModified(self):
 
 
 def applyPatch(scope, original, replacement):
-    setattr(scope, '_original_' + original, getattr(scope, original))
+    original_backup_name = '_original_' + original
+    if getattr(scope, original_backup_name, None) is None:
+        setattr(scope, original_backup_name, getattr(scope, original))
     setattr(scope, original, replacement)
