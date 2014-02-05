@@ -16,12 +16,12 @@ class LastModifierExtender(object):
         ExtensionStringField(
             'lastModifier',
             schemata='ownership',
-            widget = atapi.StringWidget(
-                label = _(u'label_last_modifier', default=u'Last modified by'),
+            widget=atapi.StringWidget(
+                label=_(u'label_last_modifier', default=u'Last modified by'),
                 description=_(u'help_last_modifier',
                               default=u'The user who made the last '
                                        'modification on this content.'),
-                visible={'edit':'invisible', 'view':'invisible'},
+                visible={'edit': 'invisible', 'view': 'invisible'},
             ),
         ),
     ]

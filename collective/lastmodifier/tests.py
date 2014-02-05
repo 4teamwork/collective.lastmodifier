@@ -25,7 +25,7 @@ class TestLastModifier(unittest.TestCase):
         acl_users.userFolderAddUser('modifier1', 'secret', ['Member'], [])
         setRoles(portal, 'modifier1', ['Editor'])
         login(portal, 'modifier1')
-        doc.reindexObject() # "modify" the object
+        doc.reindexObject()  # "modify" the object
         last_modifier = doc.getField('lastModifier').getAccessor(doc)()
         self.assertEqual(last_modifier, 'modifier1')
 

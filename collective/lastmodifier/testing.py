@@ -8,7 +8,6 @@ class Fixture(PloneSandboxLayer):
     defaultBases = (PLONE_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
-    
         import collective.lastmodifier
         self.loadZCML(package=collective.lastmodifier)
         z2.installProduct(app, "collective.lastmodifier")
