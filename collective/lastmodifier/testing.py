@@ -4,7 +4,7 @@ from plone.app.testing import IntegrationTesting
 from plone.testing import z2
 
 
-class Fixture(PloneSandboxLayer):
+class LastmodifierLayer(PloneSandboxLayer):
     defaultBases = (PLONE_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
@@ -15,7 +15,6 @@ class Fixture(PloneSandboxLayer):
         self.applyProfile(portal, "collective.lastmodifier:default")
 
 
-FIXTURE = Fixture()
-
-INTEGRATION_TESTING = IntegrationTesting(
-    bases=(FIXTURE,), name="Fixture:Integration")
+LASTMODIFIER_FIXTURE = LastmodifierLayer()
+LASTMODIFIER_INTEGRATION_TESTING = IntegrationTesting(
+    bases=(LASTMODIFIER_FIXTURE,), name="collective.lastmodifier:Integration")

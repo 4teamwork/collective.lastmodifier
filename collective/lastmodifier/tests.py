@@ -1,14 +1,14 @@
-import unittest2 as unittest
-from collective.lastmodifier.testing import INTEGRATION_TESTING
 from Products.CMFCore.utils import getToolByName
+from collective.lastmodifier.testing import LASTMODIFIER_INTEGRATION_TESTING
 from plone.app.testing import TEST_USER_ID
-from plone.app.testing import setRoles
 from plone.app.testing import login
+from plone.app.testing import setRoles
+import unittest2 as unittest
 
 
 class TestLastModifier(unittest.TestCase):
 
-    layer = INTEGRATION_TESTING
+    layer = LASTMODIFIER_INTEGRATION_TESTING
 
     def test_creation(self):
         portal = self.layer['portal']
@@ -32,7 +32,7 @@ class TestLastModifier(unittest.TestCase):
 
 class TestCatalog(unittest.TestCase):
 
-    layer = INTEGRATION_TESTING
+    layer = LASTMODIFIER_INTEGRATION_TESTING
 
     def test_index(self):
         portal = self.layer['portal']
