@@ -7,8 +7,9 @@ tests_require = [
     'Products.CMFCore',
     'ftw.builder',
     'plone.app.testing',
-    'plone.testing',
     'unittest2',
+    'zope.event',
+    'zope.lifecycleevent',
     ]
 
 setup(name='collective.lastmodifier',
