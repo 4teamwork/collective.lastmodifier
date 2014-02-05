@@ -10,13 +10,9 @@ class Fixture(PloneSandboxLayer):
     def setUpZope(self, app, configurationContext):
         import collective.lastmodifier
         self.loadZCML(package=collective.lastmodifier)
-        z2.installProduct(app, "collective.lastmodifier")
 
     def setUpPloneSite(self, portal):
         self.applyProfile(portal, "collective.lastmodifier:default")
-
-    def tearDownZope(self, app):
-        z2.uninstallProduct(app, "collective.lastmodifier")
 
 
 FIXTURE = Fixture()
