@@ -5,6 +5,7 @@
     xmlns:monkey="http://namespaces.plone.org/monkey"
     i18n_domain="collective.lastmodifier">
 
+    <include package="collective.monkeypatcher" file="meta.zcml" />
     <monkey:patch
         class="Products.Archetypes.ExtensibleMetadata.ExtensibleMetadata"
         original="notifyModified"

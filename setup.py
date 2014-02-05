@@ -4,14 +4,17 @@ import os
 version = '1.0.1.dev0'
 
 tests_require = [
+    'Products.CMFCore',
     'plone.app.testing',
-]
+    'plone.testing',
+    'unittest2',
+    ]
 
 setup(name='collective.lastmodifier',
       version=version,
       description="Extends Plone content with metadata about the last modifier",
       long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      open(os.path.join("docs", "HISTORY.txt")).read(),
 
       # Get more strings from
       # http://www.python.org/pypi?%3Aaction=list_classifiers
@@ -36,9 +39,17 @@ setup(name='collective.lastmodifier',
       zip_safe=False,
 
       install_requires=[
-          'setuptools',
-          'collective.monkeypatcher',
-      ],
+        'Products.Archetypes',
+        'Products.CMFCore',
+        'Products.CMFPlone',
+        'Products.GenericSetup',
+        'archetypes.schemaextender',
+        'collective.monkeypatcher',
+        'plone.indexer',
+        'setuptools',
+        'zope.interface',
+        ],
+
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
 
