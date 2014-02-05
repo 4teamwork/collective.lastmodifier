@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.1 (unreleased)
+1.0.1 (2014-02-05)
 ------------------
 
 - Cleanup package and declare dependencies.
