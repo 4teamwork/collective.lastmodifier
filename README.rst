@@ -23,6 +23,8 @@ Compatibility
 
 Runs with `Plone <http://www.plone.org/>`_ `4.1`, `4.2` and `4.3`.
 
+It is currently only compatible with Archetypes, Dexterity is not compatible.
+
 
 Links
 =====
