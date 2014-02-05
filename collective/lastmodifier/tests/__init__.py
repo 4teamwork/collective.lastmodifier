@@ -1,33 +1,8 @@
 from Products.CMFCore.utils import getToolByName
 from collective.lastmodifier.testing import LASTMODIFIER_INTEGRATION_TESTING
 from plone.app.testing import TEST_USER_ID
-from plone.app.testing import login
 from plone.app.testing import setRoles
 import unittest2 as unittest
-
-
-class TestLastModifier(unittest.TestCase):
-
-    layer = LASTMODIFIER_INTEGRATION_TESTING
-
-    def test_creation(self):
-        portal = self.layer['portal']
-        setRoles(portal, TEST_USER_ID, ['Contributor'])
-        doc = portal[portal.invokeFactory('Document', 'doc')]
-        last_modifier = doc.getField('lastModifier').getAccessor(doc)()
-        self.assertEqual(last_modifier, TEST_USER_ID)
-
-    def test_modification(self):
-        portal = self.layer['portal']
-        setRoles(portal, TEST_USER_ID, ['Contributor'])
-        doc = portal[portal.invokeFactory('Document', 'doc')]
-        acl_users = getToolByName(portal, 'acl_users')
-        acl_users.userFolderAddUser('modifier1', 'secret', ['Member'], [])
-        setRoles(portal, 'modifier1', ['Editor'])
-        login(portal, 'modifier1')
-        doc.reindexObject()  # "modify" the object
-        last_modifier = doc.getField('lastModifier').getAccessor(doc)()
-        self.assertEqual(last_modifier, 'modifier1')
 
 
 class TestCatalog(unittest.TestCase):

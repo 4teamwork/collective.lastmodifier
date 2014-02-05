@@ -1,11 +1,11 @@
-from plone.app.testing import PloneSandboxLayer
-from plone.app.testing import PLONE_FIXTURE
+from ftw.builder.testing import BUILDER_LAYER
 from plone.app.testing import IntegrationTesting
-from plone.testing import z2
+from plone.app.testing import PLONE_FIXTURE
+from plone.app.testing import PloneSandboxLayer
 
 
 class LastmodifierLayer(PloneSandboxLayer):
-    defaultBases = (PLONE_FIXTURE,)
+    defaultBases = (PLONE_FIXTURE, BUILDER_LAYER)
 
     def setUpZope(self, app, configurationContext):
         import collective.lastmodifier
