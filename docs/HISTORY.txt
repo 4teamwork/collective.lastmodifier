@@ -4,6 +4,9 @@ Changelog
 1.1.0 (unreleased)
 ------------------
 
+- Drop Plone 4.1 support.
+  [jone]
+
 - Implement dexterity support.
   [jone]
 
