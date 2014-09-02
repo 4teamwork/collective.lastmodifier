@@ -18,6 +18,22 @@ Go to Site Setup of your Plone site and activate the ``collective.lastmodifier``
 add-on.
 
 
+Last modifier adapter
+=====================
+
+In addition to the catalog index and metadata the last modifier
+adapter provides easy access for getting the last modifier or for
+setting it:
+
+.. code:: python
+
+    from collective.lastmodifier.interfaces import ILastModifier
+
+    last_modifier = ILastModifier(context)
+    last_modifier.get()  # returns the user id of the last modifier
+    last_modifier.set(user_id)  # sets the last modifier
+
+
 Compatibility
 -------------
 

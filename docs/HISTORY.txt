@@ -4,6 +4,9 @@ Changelog
 1.0.2 (unreleased)
 ------------------
 
+- Implement an ILastModifier adapter.
+  [jone]
+
 - Implement uninstall for the package.
   [jone]
 

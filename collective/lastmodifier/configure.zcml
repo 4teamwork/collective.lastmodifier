@@ -25,6 +25,8 @@
 
     <adapter name="last_modifier" factory=".indexers.last_modifier" />
 
+    <adapter factory=".adapter.ATLastModifier" />
+
     <genericsetup:registerProfile
         name="default"
         title="collective.lastmodifier"
