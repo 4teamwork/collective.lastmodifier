@@ -6,6 +6,7 @@ version = '1.0.2.dev0'
 tests_require = [
     'Products.CMFCore',
     'ftw.builder',
+    'ftw.testing',
     'plone.app.testing',
     'unittest2',
     'zope.event',

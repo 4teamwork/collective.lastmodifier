@@ -3,10 +3,15 @@ from Products.CMFCore.utils import getToolByName
 
 
 PROFILE_ID = 'profile-collective.lastmodifier:default'
+INDEXES = (('last_modifier', 'FieldIndex'),)
 
 
 def installed(site):
     add_catalog_indexes(site)
+
+
+def uninstalled(site):
+    remove_catalog_indexes(site)
 
 
 def add_catalog_indexes(context, logger=None):
@@ -35,7 +40,7 @@ def add_catalog_indexes(context, logger=None):
     catalog = getToolByName(context, 'portal_catalog')
     indexes = catalog.indexes()
     # Specify the indexes you want, with ('index_name', 'index_type')
-    wanted = (('last_modifier', 'FieldIndex'),)
+    wanted = INDEXES
     indexables = []
     for name, meta_type in wanted:
         if name not in indexes:
@@ -45,3 +50,12 @@ def add_catalog_indexes(context, logger=None):
     if len(indexables) > 0:
         logger.info("Indexing new indexes %s.", ', '.join(indexables))
         catalog.manage_reindexIndex(ids=indexables)
+
+
+def remove_catalog_indexes(context):
+    catalog = getToolByName(context, 'portal_catalog')
+    indexes = catalog.indexes()
+
+    for name, meta_type in INDEXES:
+        if name in indexes:
+            catalog.delIndex(name)

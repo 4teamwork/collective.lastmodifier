@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<atcttool>
+
+  <topic_indexes>
+    <index name="last_modifier" remove="True" />
+  </topic_indexes>
+
+  <topic_metadata>
+    <metadata name="last_modifier" remove="True" />
+  </topic_metadata>
+
+</atcttool>
