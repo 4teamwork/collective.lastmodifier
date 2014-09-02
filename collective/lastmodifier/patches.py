@@ -1,3 +1,4 @@
+from collective.lastmodifier.interfaces import ILastModifier
 from Products.CMFCore.utils import getToolByName
 
 
@@ -10,7 +11,7 @@ def notifyModified(self):
     if mtool is None:
         return
     modifier = mtool.getAuthenticatedMember().getId()
-    self.getField('lastModifier').getMutator(self)(modifier)
+    ILastModifier(self).set(modifier, reindex=False)
 
 
 def applyPatch(scope, original, replacement):
