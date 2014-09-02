@@ -1,7 +1,12 @@
 import logging
 from Products.CMFCore.utils import getToolByName
-# The profile id of your package:
+
+
 PROFILE_ID = 'profile-collective.lastmodifier:default'
+
+
+def installed(site):
+    add_catalog_indexes(site)
 
 
 def add_catalog_indexes(context, logger=None):
@@ -40,14 +45,3 @@ def add_catalog_indexes(context, logger=None):
     if len(indexables) > 0:
         logger.info("Indexing new indexes %s.", ', '.join(indexables))
         catalog.manage_reindexIndex(ids=indexables)
-
-
-def import_various(context):
-    """Import step for configuration that is not handled in xml files.
-    """
-    # Only run step if a flag file is present
-    if context.readDataFile('collective.lastmodifier-various.txt') is None:
-        return
-    logger = context.getLogger('collective.lastmodifier')
-    site = context.getSite()
-    add_catalog_indexes(site, logger)
