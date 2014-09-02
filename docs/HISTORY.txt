@@ -1,8 +1,11 @@
 Changelog
 =========
 
-1.0.2 (unreleased)
+1.1.0 (unreleased)
 ------------------
+
+- Implement dexterity support.
+  [jone]
 
 - Implement an ILastModifier adapter.
   [jone]

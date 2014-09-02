@@ -5,6 +5,7 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:monkey="http://namespaces.plone.org/monkey"
     xmlns:profilehook="http://namespaces.zope.org/profilehook"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="collective.lastmodifier">
 
     <include package="ftw.profilehook" />
@@ -26,6 +27,24 @@
     <adapter name="last_modifier" factory=".indexers.last_modifier" />
 
     <adapter factory=".adapter.ATLastModifier" />
+
+    <configure zcml:condition="installed plone.app.dexterity">
+      <adapter factory=".adapter.DXLastModifier"
+               for="plone.dexterity.interfaces.IDexterityItem" />
+
+      <subscriber
+          for="plone.dexterity.interfaces.IDexterityItem
+               zope.lifecycleevent.interfaces.IObjectAddedEvent"
+          handler=".subscribers.set_last_modifier"
+          />
+
+      <subscriber
+          for="plone.dexterity.interfaces.IDexterityItem
+               zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+          handler=".subscribers.set_last_modifier"
+          />
+          />
+    </configure>
 
     <genericsetup:registerProfile
         name="default"

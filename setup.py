@@ -1,13 +1,15 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0.2.dev0'
+version = '1.1.0.dev0'
 
 tests_require = [
     'Products.CMFCore',
     'ftw.builder',
     'ftw.testing',
+    'plone.app.dexterity',
     'plone.app.testing',
+    'plone.directives.form',
     'unittest2',
     'zope.event',
     'zope.lifecycleevent',
