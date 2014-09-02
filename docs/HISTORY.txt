@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1.0 (unreleased)
+1.1.0 (2014-09-02)
 ------------------
 
 - Drop Plone 4.1 support.
