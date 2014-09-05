@@ -16,7 +16,8 @@ class ATLastModifier(object):
         self.context = context
 
     def get(self):
-        return self._get_field().getAccessor(self.context)()
+        return (self._get_field().getAccessor(self.context)()
+                or self.context.Creator())
 
     def set(self, userid, reindex=True):
         self._get_field().getMutator(self.context)(userid)
@@ -34,7 +35,8 @@ class DXLastModifier(object):
         self.context = context
 
     def get(self):
-        return IAnnotations(self.context).get(ANNOTATION_KEY, None)
+        return (IAnnotations(self.context).get(ANNOTATION_KEY, None)
+                or self.context.Creator())
 
     def set(self, userid, reindex=True):
         IAnnotations(self.context)[ANNOTATION_KEY] = userid
