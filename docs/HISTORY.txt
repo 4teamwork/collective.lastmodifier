@@ -4,7 +4,9 @@ Changelog
 1.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Use IDexterityContent instead of IDexterityItem to match all dexterity
+  contents.
+  [cedricmessiant]
 
 
 1.1.1 (2014-09-05)
