@@ -30,16 +30,16 @@
 
     <configure zcml:condition="installed plone.app.dexterity">
       <adapter factory=".adapter.DXLastModifier"
-               for="plone.dexterity.interfaces.IDexterityItem" />
+               for="plone.dexterity.interfaces.IDexterityContent" />
 
       <subscriber
-          for="plone.dexterity.interfaces.IDexterityItem
+          for="plone.dexterity.interfaces.IDexterityContent
                zope.lifecycleevent.interfaces.IObjectAddedEvent"
           handler=".subscribers.set_last_modifier"
           />
 
       <subscriber
-          for="plone.dexterity.interfaces.IDexterityItem
+          for="plone.dexterity.interfaces.IDexterityContent
                zope.lifecycleevent.interfaces.IObjectModifiedEvent"
           handler=".subscribers.set_last_modifier"
           />
