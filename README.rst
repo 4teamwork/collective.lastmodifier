@@ -45,9 +45,9 @@ It is currently only compatible with Archetypes, Dexterity is not compatible.
 Links
 =====
 
-- Github project repository: https://github.com/4teamwork/collective.lastmodifier
-- Issue tracker: https://github.com/4teamwork/collective.lastmodifier/issues
-- Package on pypi: http://pypi.python.org/pypi/collective.lastmodifier
+- Github: https://github.com/4teamwork/collective.lastmodifier
+- Issues: https://github.com/4teamwork/collective.lastmodifier/issues
+- Pypi: http://pypi.python.org/pypi/collective.lastmodifier
 - Continuous integration: https://jenkins.4teamwork.ch/search?q=collective.lastmodifier
 
 
