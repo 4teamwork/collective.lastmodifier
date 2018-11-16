@@ -5,6 +5,7 @@ Changelog
 ------------------
 
 - Drop plone 4.2 support [Nachtalb]
+- Fix obsolete information in README.rst [Nachtalb]
 
 
 1.1.2 (2014-09-19)
