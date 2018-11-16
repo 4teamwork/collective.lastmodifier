@@ -35,13 +35,13 @@
       <subscriber
           for="plone.dexterity.interfaces.IDexterityContent
                zope.lifecycleevent.interfaces.IObjectAddedEvent"
-          handler=".subscribers.set_last_modifier"
+          handler=".subscribers.set_last_modifier_handler"
           />
 
       <subscriber
           for="plone.dexterity.interfaces.IDexterityContent
                zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-          handler=".subscribers.set_last_modifier"
+          handler=".subscribers.set_last_modifier_handler"
           />
           />
     </configure>
