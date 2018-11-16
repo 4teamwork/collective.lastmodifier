@@ -33,6 +33,11 @@ setting it:
     last_modifier.get()  # returns the user id of the last modifier
     last_modifier.set(user_id)  # sets the last modifier
 
+    # Or to set the last modifier even easier
+
+    from collective.lastmodifier.utils import set_last_modifier
+
+    set_last_modifier(context)
 
 Compatibility
 -------------

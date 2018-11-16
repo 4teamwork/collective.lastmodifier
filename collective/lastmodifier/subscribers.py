@@ -1,10 +1,5 @@
-from collective.lastmodifier.interfaces import ILastModifier
-from Products.CMFCore.utils import getToolByName
+from collective.lastmodifier.utils import set_last_modifier
 
 
-def set_last_modifier(context, event):
-    mtool = getToolByName(context, 'portal_membership', None)
-    if mtool is None:
-        return
-    modifier = mtool.getAuthenticatedMember().getId()
-    ILastModifier(context).set(modifier)
+def set_last_modifier_handler(context, event):
+    set_last_modifier(context)
