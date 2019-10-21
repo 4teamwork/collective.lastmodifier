@@ -2,14 +2,16 @@ from collective.lastmodifier.interfaces import ILastModifier
 from collective.lastmodifier.testing import LASTMODIFIER_INTEGRATION_TESTING
 from ftw.builder import Builder
 from ftw.builder import create
+from ftw.testing import IS_PLONE_5
 from plone.app.testing import login
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from Products.CMFCore.utils import getToolByName
-from unittest2 import TestCase
+import unittest
 
 
-class TestATLastModifierAdapter(TestCase):
+@unittest.skipIf(IS_PLONE_5, 'AT is no longer supported with plone 5')
+class TestATLastModifierAdapter(unittest.TestCase):
     layer = LASTMODIFIER_INTEGRATION_TESTING
 
     def setUp(self):

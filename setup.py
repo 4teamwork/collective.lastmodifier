@@ -15,6 +15,12 @@ tests_require = [
     'zope.lifecycleevent',
     ]
 
+plone4_require = [
+    'Products.Archetypes',
+    'archetypes.schemaextender',
+]
+
+
 setup(name='collective.lastmodifier',
       version=version,
       description="Extends Plone content with metadata about the last modifier",
@@ -27,6 +33,7 @@ setup(name='collective.lastmodifier',
       classifiers=[
         "Framework :: Plone",
         'Framework :: Plone :: 4.3',
+        'Framework :: Plone :: 5.1',
         "Programming Language :: Python",
         ],
 
@@ -42,11 +49,9 @@ setup(name='collective.lastmodifier',
       zip_safe=False,
 
       install_requires=[
-        'Products.Archetypes',
         'Products.CMFCore',
         'Products.CMFPlone',
         'Products.GenericSetup',
-        'archetypes.schemaextender',
         'collective.monkeypatcher',
         'ftw.profilehook',
         'plone.indexer',
@@ -55,7 +60,8 @@ setup(name='collective.lastmodifier',
         ],
 
       tests_require=tests_require,
-      extras_require=dict(tests=tests_require),
+      extras_require=dict(tests=tests_require,
+                          plone4=plone4_require),
 
       entry_points="""
       # -*- Entry points: -*-

@@ -1,15 +1,15 @@
 from collective.lastmodifier.interfaces import ILastModifier
 from collective.lastmodifier.testing import LASTMODIFIER_INTEGRATION_TESTING
+from collective.lastmodifier.tests import LastModifierTestCase
 from ftw.builder import Builder
 from ftw.builder import create
 from plone.app.testing import login
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from Products.CMFCore.utils import getToolByName
-from unittest2 import TestCase
 
 
-class TestDXLastModifierAdapter(TestCase):
+class TestDXLastModifierAdapter(LastModifierTestCase):
     layer = LASTMODIFIER_INTEGRATION_TESTING
 
     def setUp(self):
@@ -34,6 +34,7 @@ class TestDXLastModifierAdapter(TestCase):
 
         rid = self.catalog.getrid('/'.join(obj.getPhysicalPath()))
 
+        self.flush_queue()
         self.assertDictContainsSubset(
             {'last_modifier': 'john.doe'},
             self.catalog.getIndexDataForRID(rid),
