@@ -1,4 +1,5 @@
 from ftw.builder.testing import BUILDER_LAYER
+from ftw.testing import IS_PLONE_5
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
@@ -23,9 +24,13 @@ class LastmodifierLayer(PloneSandboxLayer):
                       name='profiles.zcml')
 
     def setUpPloneSite(self, portal):
+        if IS_PLONE_5:
+            self.applyProfile(portal, "plone.app.contenttypes:default")
+
         self.applyProfile(portal, "collective.lastmodifier:default")
         self.applyProfile(portal,
                           "collective.lastmodifier.tests:dxtype")
+
 
 LASTMODIFIER_FIXTURE = LastmodifierLayer()
 LASTMODIFIER_INTEGRATION_TESTING = IntegrationTesting(

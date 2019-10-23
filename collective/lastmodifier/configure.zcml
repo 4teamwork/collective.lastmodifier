@@ -12,21 +12,27 @@
 
     <five:registerPackage package="." initialize=".initialize" />
 
-    <include package="collective.monkeypatcher" file="meta.zcml" />
-    <monkey:patch
-        class="Products.Archetypes.ExtensibleMetadata.ExtensibleMetadata"
-        original="notifyModified"
-        replacement=".patches.notifyModified"
-        handler=".patches.applyPatch" />
 
-    <adapter
-        name="collective.lastmodifier"
-        for="Products.Archetypes.interfaces.IExtensibleMetadata"
-        factory=".schemaextender.LastModifierExtender" />
+    <configure zcml:condition="not-have plone-5">
+
+        <include package="collective.monkeypatcher" file="meta.zcml" />
+        <monkey:patch
+            class="Products.Archetypes.ExtensibleMetadata.ExtensibleMetadata"
+            original="notifyModified"
+            replacement=".patches.notifyModified"
+            handler=".patches.applyPatch" />
+
+        <adapter
+            name="collective.lastmodifier"
+            for="Products.Archetypes.interfaces.IExtensibleMetadata"
+            factory=".schemaextender.LastModifierExtender" />
+
+        <adapter factory=".adapter.ATLastModifier" />
+    </configure>
 
     <adapter name="last_modifier" factory=".indexers.last_modifier" />
 
-    <adapter factory=".adapter.ATLastModifier" />
+
 
     <configure zcml:condition="installed plone.app.dexterity">
       <adapter factory=".adapter.DXLastModifier"

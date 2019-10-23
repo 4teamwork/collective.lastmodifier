@@ -42,7 +42,7 @@ setting it:
 Compatibility
 -------------
 
-Runs with `Plone <http://www.plone.org/>`_ `4.3`.
+Runs with `Plone <http://www.plone.org/>`_ `4.3` and `5.1`.
 
 It is currently only compatible with Archetypes and Dexterity.
 

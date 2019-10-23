@@ -1,16 +1,19 @@
 from collective.lastmodifier.testing import LASTMODIFIER_INTEGRATION_TESTING
 from ftw.builder import Builder
 from ftw.builder import create
-from plone.app.testing import TEST_USER_ID
-from plone.app.testing import TEST_USER_NAME
+from ftw.testing import IS_PLONE_5
 from plone.app.testing import login
 from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_NAME
+from unittest import skipIf
+from unittest import TestCase
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
-import unittest2
 
 
-class TestArchetypesField(unittest2.TestCase):
+@skipIf(IS_PLONE_5, 'AT is no longer supported with plone 5')
+class TestArchetypesField(TestCase):
 
     layer = LASTMODIFIER_INTEGRATION_TESTING
 
