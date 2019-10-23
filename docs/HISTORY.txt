@@ -4,7 +4,8 @@ Changelog
 1.1.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add Plone 5.1 support. [mathias.leimgruber]
+- No longer support AT officially. [mathias.leimgruber]
 
 
 1.1.3 (2018-11-16)
